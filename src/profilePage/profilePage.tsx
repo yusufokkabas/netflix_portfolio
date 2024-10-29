@@ -1,15 +1,23 @@
 import React from 'react';
-import { useParams } from 'react-router-dom';
+import { useLocation } from 'react-router-dom';
 import './ProfilePage.css';
+import Navbar from '../components/NavBar';
 
 const ProfilePage: React.FC = () => {
-  const { profileName } = useParams<{ profileName: string }>();
+  const location = useLocation();
+  const backgroundGif = location.state?.backgroundGif || "https://media.giphy.com/media/xT9IgzoKnwFNmISR8I/giphy.gif"; // Default GIF
 
   return (
-    <div className="profile-page">
-      <h1>Welcome, {profileName}!</h1>
-      <p>This is the dashboard for {profileName}. Here you can add unique content for each profile.</p>
-    </div>
+    <>
+      <Navbar />
+      <div
+        className="profile-page"
+        style={{ backgroundImage: `url(${backgroundGif})` }}
+      >
+        <h1>Welcome, {location.state?.profileName || "User"}!</h1>
+        <p>This is the dashboard for {location.state?.profileName || "User"}.</p>
+      </div>
+    </>
   );
 };
 

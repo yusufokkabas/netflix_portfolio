@@ -4,8 +4,11 @@
   justify-content: center;
   align-items: center;
   height: 100vh;
-  background-color: #111;
   color: #fff;
+  background-image: url('https://images.unsplash.com/photo-1506748686214-e9df14d4d9d0');
+  background-size: cover;
+  background-position: center;
+  opacity: 1;
 }
 
 h1 {
