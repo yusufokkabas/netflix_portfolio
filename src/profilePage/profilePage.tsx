@@ -2,7 +2,8 @@ import React from 'react';
 import { useLocation } from 'react-router-dom';
 import './ProfilePage.css';
 import Navbar from '../components/NavBar';
-
+import ProfileBanner from './ProfileBanner';
+import TopPicksRow from './TopPicksRow';
 const ProfilePage: React.FC = () => {
   const location = useLocation();
   const backgroundGif = location.state?.backgroundGif || "https://media.giphy.com/media/xT9IgzoKnwFNmISR8I/giphy.gif"; // Default GIF
@@ -14,9 +15,14 @@ const ProfilePage: React.FC = () => {
         className="profile-page"
         style={{ backgroundImage: `url(${backgroundGif})` }}
       >
-        <h1>Welcome, {location.state?.profileName || "User"}!</h1>
-        <p>This is the dashboard for {location.state?.profileName || "User"}.</p>
+        <ProfileBanner
+          backgroundImage={backgroundGif}
+          headline="Professional Profile"
+          resumeLink="https://www.yourresume.com"
+          linkedinLink="https://www.linkedin.com/in/yourprofile"
+        />
       </div>
+      <TopPicksRow />
     </>
   );
 };
