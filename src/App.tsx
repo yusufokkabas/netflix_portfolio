@@ -1,12 +1,17 @@
+import React from 'react';
+import { Routes, Route } from 'react-router-dom';
 import NetflixTitle from './NetflixTitle';
-import { BrowserRouter as Router } from 'react-router-dom';
+import ProfilePage from './profilePage/profilePage';
+import Browse from './browse/browse';
 
-function App() {
+const App: React.FC = () => {
   return (
-    <Router>
-      <NetflixTitle />
-    </Router>
+    <Routes>
+      <Route path="/" element={<NetflixTitle />} />
+      <Route path="/browse" element={<Browse />} />
+      <Route path="/profile/:profileName" element={<ProfilePage />} />
+    </Routes>
   );
-}
+};
 
 export default App;

@@ -1,13 +1,14 @@
-.browse-container {
+.profile-page {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   height: 100vh;
-  background-color: #000;
+  background-color: #111;
   color: #fff;
 }
 
-h2 {
-  font-size: 2rem;
+h1 {
+  font-size: 2.5rem;
+  margin-bottom: 20px;
 }
