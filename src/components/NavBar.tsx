@@ -18,11 +18,11 @@ const Navbar: React.FC = () => {
         </Link>
         <ul className="navbar-links">
           <li><Link to="/">Home</Link></li>
-          <li><Link to="/tv-shows">TV Shows</Link></li>
-          <li><Link to="/movies">Movies</Link></li>
-          <li><Link to="/new-popular">New & Popular</Link></li>
-          <li><Link to="/my-list">My List</Link></li>
-          <li><Link to="/browse-by-language">Browse by Language</Link></li>
+          <li><Link to="/tv-shows">Headline</Link></li>
+          <li><Link to="/movies">Work Experience</Link></li>
+          <li><Link to="/new-popular">Skills</Link></li>
+          <li><Link to="/my-list">Acheivements</Link></li>
+          <li><Link to="/browse-by-language">Projects</Link></li>
         </ul>
       </div>
       <div className="navbar-right">
