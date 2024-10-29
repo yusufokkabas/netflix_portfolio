@@ -2,12 +2,12 @@
   display: flex;
   align-items: flex-end;
   justify-content: left;
-  height: 60vh;
   background-size: cover;
   background-position: center;
   color: #fff;
   padding: 40px;
   position: relative;
+  padding-bottom: 0px;
 }
 
 .profile-banner::before {
@@ -21,8 +21,8 @@
 
 .banner-content {
   position: relative;
-  z-index: 1;
-  max-width: 500px;
+  max-width: 1000px;
+  font-weight: bold;
 }
 
 .banner-headline {

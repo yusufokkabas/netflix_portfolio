@@ -1,9 +1,9 @@
-.top-picks-row {
+.continue-watching-row {
   padding: 20px;
   color: #fff;
 }
 
-.top-picks-row:hover {
+.continue-watching-row:hover {
  cursor: pointer;
 }
 
@@ -17,6 +17,11 @@
   gap: 10px;
   overflow-x: auto;
   padding-bottom: 10px;
+  scrollbar-width: none; /* For Firefox */
+}
+
+.card-row::-webkit-scrollbar {
+  display: none; /* For Chrome, Safari, and Edge */
 }
 
 .pick-card {
