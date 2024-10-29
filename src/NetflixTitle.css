@@ -1,51 +1,32 @@
-/* NetflixTitle.css */
-
 .netflix-container {
   display: flex;
   align-items: center;
   justify-content: center;
+  height: 100vh;
   background-color: #141414;
+  overflow: hidden;
 }
 
-.netflix-title {
-  color: red;
-  font-size: 3rem;
-  font-weight: bold;
-  display: inline-block;
-  font-size: 5rem;
-}
-
-.letter {
-  text-shadow: 0 0 8px rgb(255 253 253 / 64%), 2px 0px 0px rgb(255 255 255 / 36%);
-  display: inline-block;
+.netflix-logo {
+  width: 500px;
+  height: auto;
   opacity: 0;
   transform: scale(0.8);
   animation: fadeIn 0.5s forwards ease-in;
 }
 
-@keyframes reveal {
-  0% {
-    opacity: 0;
-    transform: translateY(10px);
-  }
-  100% {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
 @keyframes fadeIn {
   to {
-    opacity: 0;
+    opacity: 1;
     transform: scale(1);
   }
 }
 
-.animate .letter {
-  animation: zoomIn 3s forwards ease-in-out;
+.animate.netflix-logo {
+  animation: zoomOut 3s forwards ease-in-out;
 }
 
-@keyframes zoomIn {
+@keyframes zoomOut {
   0%, 80% {
     transform: scale(1);
     opacity: 1;
