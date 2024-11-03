@@ -3,16 +3,16 @@ import datoCMSClient from './datoCMSClient';
 import { TimelineItem } from '../types';
 
 const GET_TIMELINE = `
-  query {
-    allTimelines {
-      type
-      name
-      title
-      techStack
-      summaryPoints
-      dateRange
-    }
+{
+  allTimelines {
+   	name
+    timelineType
+    title
+    techStack
+    summaryPoints
+    dateRange
   }
+}
 `;
 
 export async function getTimeline(): Promise<TimelineItem[]> {
