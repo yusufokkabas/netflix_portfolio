@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import './Navbar.css';
 import netflixLogo from '../images/logo-2.png';
@@ -7,6 +7,7 @@ const Navbar: React.FC = () => {
   const location = useLocation();
   const navigate = useNavigate();
   const [isScrolled, setIsScrolled] = useState(false);
+  const [isSidebarOpen, setIsSidebarOpen] = useState(false);
   const profileImage = location.state?.profileImage || '/path/to/default-profile.png';
 
   const handleScroll = () => {
@@ -18,31 +19,62 @@ const Navbar: React.FC = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  const redirectToBrowse = () => {
-    navigate('/browse');
+  const toggleSidebar = () => {
+    setIsSidebarOpen(!isSidebarOpen);
+  };
+
+  const closeSidebar = () => {
+    setIsSidebarOpen(false);
   };
 
   return (
-    <nav className={`navbar ${isScrolled ? 'scrolled' : ''}`}>
-      <div className="navbar-left">
-        <Link to="/" className="navbar-logo">
-          <img src={netflixLogo} alt="Netflix" />
-        </Link>
-        <ul className="navbar-links">
-          <li><Link to="/browse">home</Link></li>
-          <li><Link to="/work-experience">professional</Link></li>
-          <li><Link to="/skills">skills</Link></li>
-          <li><Link to="/projects">projects</Link></li>
-          <li><Link to="/contact-me">hire me</Link></li>
+    <>
+      <nav className={`navbar ${isScrolled ? 'scrolled' : ''}`}>
+        <div className="navbar-left">
+          <Link to="/" className="navbar-logo">
+            <img src={netflixLogo} alt="Netflix" />
+          </Link>
+          <ul className="navbar-links">
+            <li><Link to="/browse">Home</Link></li>
+            <li><Link to="/work-experience">Professional</Link></li>
+            <li><Link to="/skills">Skills</Link></li>
+            <li><Link to="/projects">Projects</Link></li>
+            <li><Link to="/contact-me">Hire Me</Link></li>
+          </ul>
+        </div>
+        <div className="navbar-right">
+          {/* Hamburger menu for mobile */}
+          <div className="hamburger" onClick={toggleSidebar}>
+            <div></div>
+            <div></div>
+            <div></div>
+          </div>
+          <img src={profileImage} alt="Profile" className="profile-icon" />
+        </div>
+      </nav>
+
+      {/* Sidebar Overlay */}
+      <div className={`sidebar-overlay ${isSidebarOpen ? 'open' : ''}`} onClick={closeSidebar}></div>
+
+      {/* Sidebar (only visible on mobile) */}
+      <div className={`sidebar ${isSidebarOpen ? 'open' : ''}`}>
+        <div className="close-hamburger" onClick={toggleSidebar}>
+          <div></div>
+          <div></div>
+          <div></div>
+        </div>
+        <div className="sidebar-logo">
+          <img src={netflixLogo} alt="Netflix Logo" />
+        </div>
+        <ul>
+          <li><Link to="/browse" onClick={closeSidebar}>Home</Link></li>
+          <li><Link to="/work-experience" onClick={closeSidebar}>Professional</Link></li>
+          <li><Link to="/skills" onClick={closeSidebar}>Skills</Link></li>
+          <li><Link to="/projects" onClick={closeSidebar}>Projects</Link></li>
+          <li><Link to="/contact-me" onClick={closeSidebar}>Hire Me</Link></li>
         </ul>
       </div>
-      <div className="navbar-right">
-        <div className="profile-dropdown" onClick={redirectToBrowse}>
-          <img src={profileImage} alt="Profile" className="profile-icon" />
-          <span className="dropdown-arrow">▼</span>
-        </div>
-      </div>
-    </nav>
+    </>
   );
 };
 
