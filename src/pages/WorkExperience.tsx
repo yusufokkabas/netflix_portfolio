@@ -126,9 +126,9 @@ const WorkExperience: React.FC = () => {
           >
             {item.timelineType === "work" ? (
               <div style={{ color: 'black' }}>
-                <h3 className="vertical-timeline-element-title">{item.title} 🎉</h3>
+                <h3 className="vertical-timeline-element-title">{item.title}</h3>
                 <h4 className="vertical-timeline-element-subtitle">{item.name}</h4>
-                <p className="vertical-timeline-element-tech">🔧 {item.title}</p>
+                <p className="vertical-timeline-element-tech">🔧 {item.techStack}</p>
                 <p>{item.summaryPoints}</p>
               </div>
             ) : (
