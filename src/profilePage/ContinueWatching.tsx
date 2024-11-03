@@ -1,12 +1,13 @@
 import React from 'react';
 import './ContinueWatching.css';
+import { Link } from 'react-router-dom';
 
 const continueWatching = [
-  { title: "Music", imgSrc: "https://picsum.photos/id/1025/300/200" },          // Placeholder for "Music"
-  { title: "Reading", imgSrc: "https://picsum.photos/id/1026/300/200" },         // Placeholder for "Reading"
-  { title: "Blogs", imgSrc: "https://picsum.photos/id/1027/300/200" },           // Placeholder for "Blogs"
-  { title: "Places Visited", imgSrc: "https://picsum.photos/id/1028/300/200" },  // Placeholder for "Places Visited"
-  { title: "Contact Me", imgSrc: "https://picsum.photos/id/1029/300/200" }  // Professional contact
+  { title: "Music", imgSrc: "https://picsum.photos/id/1025/300/200", link: "/music" },
+  { title: "Reading", imgSrc: "https://picsum.photos/id/1026/300/200", link: "/reading" },
+  { title: "Blogs", imgSrc: "https://picsum.photos/id/1027/300/200", link: "/blogs" },
+  { title: "Places Visited", imgSrc: "https://picsum.photos/id/1028/300/200", link: "/places-visited" },
+  { title: "Contact Me", imgSrc: "https://picsum.photos/id/1029/300/200", link: "/contact-me" }
 ];
 
 const ContinueWatching: React.FC = () => {
@@ -15,12 +16,12 @@ const ContinueWatching: React.FC = () => {
       <h2 className="row-title">Continue Reading for Sumanth Samala</h2>
       <div className="card-row">
         {continueWatching.map((pick, index) => (
-          <div key={index} className="pick-card">
+          <Link to={pick.link} key={index} className="pick-card">
             <img src={pick.imgSrc} alt={pick.title} className="pick-image" />
             <div className="overlay">
               <div className="pick-label">{pick.title}</div>
             </div>
-          </div>
+          </Link>
         ))}
       </div>
     </div>
