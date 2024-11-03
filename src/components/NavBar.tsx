@@ -49,7 +49,7 @@ const Navbar: React.FC = () => {
             <div></div>
             <div></div>
           </div>
-          <img src={profileImage} alt="Profile" className="profile-icon" />
+          <img src={profileImage} alt="Profile" className="profile-icon" onClick={() => { navigate('/browse')}} />
         </div>
       </nav>
 
@@ -58,11 +58,6 @@ const Navbar: React.FC = () => {
 
       {/* Sidebar (only visible on mobile) */}
       <div className={`sidebar ${isSidebarOpen ? 'open' : ''}`}>
-        <div className="close-hamburger" onClick={toggleSidebar}>
-          <div></div>
-          <div></div>
-          <div></div>
-        </div>
         <div className="sidebar-logo">
           <img src={netflixLogo} alt="Netflix Logo" />
         </div>
