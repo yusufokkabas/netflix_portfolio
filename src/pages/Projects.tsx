@@ -9,7 +9,7 @@ import vaack from '../images/vaack.png';
 import mystartupequity from '../images/mystartupequity.png';
 import startups from '../images/startups.png';
 import crm from '../images/crm.png';
-
+import allmeno from '../images/allmeno.png';
 const techIcons: { [key: string]: JSX.Element } = {
   "ReactJS": <FaReact />,
   "NodeJS": <FaNodeJs />,
@@ -58,14 +58,20 @@ const projects = [
   {
     title: "Angular to React Migration",
     description: "Participated in the migration from Angular to React, focusing on complex components and Formik for validations.",
-    techUsed: ["ReactJS (Frontend)", "Ruby on Rails (Backend)"],
+    techUsed: ["ReactJS", "Ruby on Rails"],
     imgSrc: startups,
   },
   {
     title: "E-Commerce Website for Natural Products",
     description: "Built an e-commerce website for self-manufactured natural products, handling the full MERN stack and DevOps as a freelancer.",
-    techUsed: ["ReactJS (Frontend)", "Ruby on Rails (Backend)"],
+    techUsed: ["ReactJS", "Ruby on Rails"],
     imgSrc: vaack,
+  },
+  {
+    title: "All Meno",
+    description: "This is my personal project where I have built a website for all restaurants in and around my undergrad college. This website is built using pure HTML and JavaScript.",
+    techUsed: ["HTML5", "CSS3"],
+    imgSrc: allmeno,
   },
 ];
 

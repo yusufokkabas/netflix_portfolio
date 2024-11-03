@@ -10,7 +10,7 @@ const Navbar: React.FC = () => {
   const profileImage = location.state?.profileImage || '/path/to/default-profile.png';
 
   const handleScroll = () => {
-    setIsScrolled(window.scrollY > 80); // Adjust the scroll threshold as needed
+    setIsScrolled(window.scrollY > 80);
   };
 
   useEffect(() => {
@@ -29,12 +29,11 @@ const Navbar: React.FC = () => {
           <img src={netflixLogo} alt="Netflix" />
         </Link>
         <ul className="navbar-links">
-          <li><Link to="#headline">Home</Link></li>
-          <li><Link to="/tv-shows">Headline</Link></li>
-          <li><Link to="/movies">Work Experience</Link></li>
-          <li><Link to="/new-popular">Skills</Link></li>
-          <li><Link to="/my-list">Achievements</Link></li>
-          <li><Link to="/browse-by-language">Projects</Link></li>
+          <li><Link to="/browse">home</Link></li>
+          <li><Link to="/work-experience">professional</Link></li>
+          <li><Link to="/skills">skills</Link></li>
+          <li><Link to="/projects">projects</Link></li>
+          <li><Link to="/contact-me">hire me</Link></li>
         </ul>
       </div>
       <div className="navbar-right">
