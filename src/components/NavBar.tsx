@@ -3,13 +3,14 @@ import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { FaHome, FaBriefcase, FaTools, FaProjectDiagram, FaEnvelope } from 'react-icons/fa'; // Import icons
 import './Navbar.css';
 import netflixLogo from '../images/logo-2.png';
+import blueImage from '../images/blue.png';
 
 const Navbar: React.FC = () => {
   const location = useLocation();
   const navigate = useNavigate();
   const [isScrolled, setIsScrolled] = useState(false);
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
-  const profileImage = location.state?.profileImage || '/path/to/default-profile.png';
+  const profileImage = location.state?.profileImage || blueImage;
 
   const handleScroll = () => {
     setIsScrolled(window.scrollY > 80);
@@ -50,7 +51,7 @@ const Navbar: React.FC = () => {
             <div></div>
             <div></div>
           </div>
-          <img src={profileImage} alt="Profile" className="profile-icon" />
+          <img src={profileImage} alt="Profile" className="profile-icon" onClick={() => { navigate('/browse') }} />
         </div>
       </nav>
 
