@@ -29,7 +29,8 @@
 
 .pick-card:hover {
   transform: scale(1.05);
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+  cursor: pointer;
+  box-shadow: 0 8px 20px rgba(255, 0, 0, 0.5); /* Netflix red glow on hover */
 }
 
 .pick-image {
@@ -66,6 +67,10 @@
   font-size: 1.2rem;
   font-weight: bold;
   text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.pick-label:hover {
+ color: rgb(153, 80, 80);
 }
 
 /* Animations */
