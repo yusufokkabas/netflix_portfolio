@@ -5,6 +5,7 @@ import { MdOutlineWork as WorkIcon } from 'react-icons/md';
 import { IoSchool as SchoolIcon } from 'react-icons/io5';
 import { FaStar as StarIcon } from 'react-icons/fa';
 import './WorkExperience.css';
+
 const timelineData = [
   // Work Experience
   {
@@ -12,7 +13,11 @@ const timelineData = [
     company: "Kajima London",
     title: "Mid-Level Software Developer",
     tech: "Ruby on Rails, React, Node.js, AWS, PostgreSQL",
-    summary: "🚀 Led NHSPS Open Space Website development, enhanced QA, and optimized system performance for 10,000+ users and 50 million bookings.",
+    summary: [
+      "🚀 Led NHSPS Open Space Website development for a seamless user experience.",
+      "Enhanced QA processes, reducing bug rate by 20%.",
+      "Optimized system performance for 10,000+ users and 50 million bookings."
+    ],
     date: "Jun 2023 - Present",
   },
   {
@@ -20,7 +25,11 @@ const timelineData = [
     company: "Roostify San Francisco",
     title: "Software Developer - II",
     tech: "🔧 CI/CD, Automated Testing, API Gateway, Financial Data Integration",
-    summary: "📈 Implemented automated testing, reduced latency by 25%, and led the development of loan origination platform.",
+    summary: [
+      "📈 Implemented automated testing, reducing release cycle time by 30%.",
+      "Led the development of a loan origination platform, improving response time by 25%.",
+      "Collaborated closely with cross-functional teams on CI/CD pipeline enhancements."
+    ],
     date: "Nov 2021 - Dec 2022",
   },
   {
@@ -28,7 +37,11 @@ const timelineData = [
     company: "eKincare India",
     title: "Software Developer - I",
     tech: "💻 React, Context API, Twilio, Razorpay, AWS",
-    summary: "👨‍⚕️ Developed chat and video consultation features, created an analytics dashboard, and optimized the Lighthouse score.",
+    summary: [
+      "👨‍⚕️ Developed chat and video consultation features for patient engagement.",
+      "Built an analytics dashboard, improving data insights for medical professionals.",
+      "Optimized Lighthouse score, boosting application performance."
+    ],
     date: "Jul 2020 - Nov 2021",
   },
   {
@@ -36,7 +49,11 @@ const timelineData = [
     company: "LetsVenture India",
     title: "Software Developer",
     tech: "🌐 Ruby on Rails, SQL, AngularJS, ReactJS, MERN stack",
-    summary: "🚀 Developed key features for LetsVenture platform and built products from scratch: CRM tool and secondary fundraising platform.",
+    summary: [
+      "🚀 Developed key features for LetsVenture platform, supporting investment growth.",
+      "Built a CRM tool from scratch to manage investor relationships.",
+      "Created a secondary fundraising platform, facilitating $1M+ investments."
+    ],
     date: "Jul 2018 - Jul 2020",
   },
   // Education
@@ -92,7 +109,11 @@ const WorkExperience: React.FC = () => {
                 <h3 className="vertical-timeline-element-title">{item.title} 🎉</h3>
                 <h4 className="vertical-timeline-element-subtitle">{item.company}</h4>
                 <p className="vertical-timeline-element-tech">🔧 {item.tech}</p>
-                <p>{item.summary}</p>
+                <ul>
+                  {item?.summary?.map((point, i) => (
+                    <li key={i}>{point}</li>
+                  ))}
+                </ul>
               </div>
             ) : (
               <div style={{ color: 'black' }}>
@@ -103,7 +124,6 @@ const WorkExperience: React.FC = () => {
             )}
           </VerticalTimelineElement>
         ))}
-
         {/* Additional static element at the end */}
         <VerticalTimelineElement
           iconStyle={{ background: 'rgb(16, 204, 82)', color: '#fff' }}

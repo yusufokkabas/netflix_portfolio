@@ -1,55 +1,59 @@
 .top-picks-row {
-  padding: 20px;
-  color: #fff;
-}
-
-.top-picks-row:hover {
- cursor: pointer;
+  margin: 20px 0;
+  padding: 10px 20px
 }
 
 .row-title {
-  font-size: 1.5rem;
-  margin-bottom: 10px;
+  font-size: 2rem;
+  color: #fff;
+  margin-bottom: 20px;
+  animation: fadeIn 1s ease-in-out;
 }
 
 .card-row {
   display: flex;
-  gap: 10px;
-  overflow-x: auto;
-  padding-bottom: 10px;
+  gap: 15px;
 }
 
 .pick-card {
   position: relative;
-  min-width: 150px;
-  flex: 0 0 auto;
-  border-radius: 5px;
+  width: 250px;
+  height: 200px;
+  border-radius: 8px;
   overflow: hidden;
-  transition: transform 0.3s ease;
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  animation: slideIn 0.5s ease forwards;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
 .pick-card:hover {
-  transform: scale(1.05); /* Slight zoom effect on hover */
+  transform: scale(1.05);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
 }
 
 .pick-image {
   width: 100%;
   height: 100%;
-  display: block;
   object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.pick-card:hover .pick-image {
+  transform: scale(1.1);
 }
 
 .overlay {
   position: absolute;
   top: 0;
   left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.5); /* Blackish overlay */
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
   display: flex;
   justify-content: center;
   align-items: center;
-  opacity: 1;
+  opacity: 0;
   transition: opacity 0.3s ease;
 }
 
@@ -58,12 +62,31 @@
 }
 
 .pick-label {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
   color: #fff;
-  font-size: 1rem;
+  font-size: 1.2rem;
   font-weight: bold;
-  text-align: center;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
 }
