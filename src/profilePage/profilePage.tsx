@@ -22,10 +22,6 @@ const ProfilePage: React.FC = () => {
         style={{ backgroundImage: `url(${backgroundGif})` }}
       >
         <ProfileBanner
-          backgroundImage={backgroundGif}
-          headline="Senior Software Engineer"
-          resumeLink="https://www.yourresume.com"
-          linkedinLink="https://www.linkedin.com/in/yourprofile"
         />
       </div>
       <TopPicksRow profile={profile} />
