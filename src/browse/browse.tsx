@@ -5,7 +5,7 @@ import blueImage from '../images/blue.png';
 import greyImage from '../images/grey.png';
 import redImage from '../images/red.png';
 import yellowImage from '../images/yellow.png';
-import './Browse.css';
+import './browse.css';
 
 const Browse: React.FC = () => {
   const navigate = useNavigate();
@@ -39,7 +39,7 @@ const Browse: React.FC = () => {
 
   return (
     <div className="browse-container">
-      <h2>Who's Watching?</h2>
+      <p className='who-is-watching'>Who's Watching?</p>
       <div className="profiles">
         {profiles.map((profile, index) => (
           <ProfileCard
