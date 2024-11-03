@@ -9,12 +9,10 @@ const ProfileBanner: React.FC = () => {
 
 
   const [bannerData, setBannerData] = useState<ProfileBannerType | null>(null);
-  console.log("🚀 ~ bannerData:", bannerData)
 
   useEffect(() => {
     async function fetchData() {
       const data = await getProfileBanner();
-      console.log("🚀 ~ fetchData ~ data:", data)
       setBannerData(data);
     }
     fetchData();
