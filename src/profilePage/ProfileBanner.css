@@ -5,12 +5,12 @@
   background-size: cover;
   background-position: center;
   color: #fff;
-  padding: 40px;
   position: relative;
   padding-bottom: 0;
   width: 100%;
   height: 100%;
   overflow: hidden;
+  padding: 40px 20px 20px 20px;
 }
 
 .profile-banner::before {
@@ -29,6 +29,8 @@
   width: 100%;
   padding: 50px 0px;
   box-sizing: border-box;
+  padding-top: 10px;
+  font-weight: bold;
 }
 
 .banner-headline {
@@ -39,7 +41,7 @@
 .banner-description {
   font-size: 1rem;
   margin-bottom: 20px;
-  line-height: 1.4;
+  font-size: 14px;
 }
 
 .banner-buttons {
@@ -76,34 +78,34 @@
 @media (max-width: 768px) {
   .banner-content {
     max-width: 100%;
-    padding: 20px;
+  }
+  .profile-banner {
+    padding: 60px 20px;
+    align-items: center;
+    justify-content: center;
   }
 
   .banner-headline {
     font-size: 2rem;
+    margin-top: 10rem;
   }
 
   .banner-description {
-    font-size: 0.9rem;
-    line-height: 1.3;
+    line-height: 1.5;
+    font-size: 12px;
   }
 
+  /* Button adjustments */
   .banner-buttons {
+    display: flex;
+    flex-direction: column;
     gap: 5px;
-  }
-}
-
-@media (max-width: 480px) {
-  .banner-headline {
-    font-size: 1.6rem;
-  }
-
-  .banner-description {
-    font-size: 0.8rem;
   }
 
   .banner-button {
-    padding: 8px 15px;
+    width: auto;
+    padding: 10px 15px;
     font-size: 0.9rem;
   }
 }
+
