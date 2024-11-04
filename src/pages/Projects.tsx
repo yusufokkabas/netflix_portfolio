@@ -1,17 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import './Projects.css';
-import { FaReact, FaNodeJs, FaAws, FaDatabase, FaDocker } from 'react-icons/fa';
-import { SiRubyonrails, SiPostgresql, SiMongodb, SiMaterialdesign, SiHtml5, SiCss3, SiJquery, SiAwsamplify } from 'react-icons/si';
-import utilisation from '../images/utilisation.png';
-import letsxchange from '../images/letsxchange.png';
-import avataar from '../images/avataar.png';
-import vaack from '../images/vaack.png';
-import mystartupequity from '../images/mystartupequity.png';
-import startups from '../images/startups.png';
-import crm from '../images/crm.png';
-import allmeno from '../images/allmeno.png';
+import { FaReact, FaNodeJs, FaAws, FaDatabase, FaDocker, FaAngular, FaGithub, FaGitlab, FaGoogle, FaJava, FaJenkins, FaMicrosoft, FaPython, FaVuejs } from 'react-icons/fa';
+import { SiRubyonrails, SiPostgresql, SiMongodb, SiMaterialdesign, SiHtml5, SiCss3, SiJquery, SiAwsamplify, SiFirebase, SiTerraform, SiArgo } from 'react-icons/si';
 import { Project } from '../types';
 import { getProjects } from '../queries/getProjects';
+import { GrDeploy, GrKubernetes } from "react-icons/gr";
+
 const techIcons: { [key: string]: JSX.Element } = {
   "ReactJS": <FaReact />,
   "NodeJS": <FaNodeJs />,
@@ -27,6 +21,42 @@ const techIcons: { [key: string]: JSX.Element } = {
   'Cognito': <FaAws />,
   'Lambda': <FaAws />,
   'ECS': <FaAws />,
+  'Jenkins': <FaJenkins />,
+  'Docker': <FaDocker />,
+  'GraphQL': <FaDatabase />,
+  'CI/CD': <FaGitlab />,
+  'GitLab': <FaGitlab />,
+  'GitHub': <FaGithub />,
+  'Heroku': <GrDeploy />,
+  'Netlify': <GrDeploy />,
+  'Firebase': <SiFirebase />,
+  'GCP': <FaGoogle />,
+  'Azure': <FaMicrosoft />,
+  'Kubernetes': <GrKubernetes />,
+  'Terraform': <SiTerraform />,
+  'ArgoCD': <SiArgo />,
+  'Java': <FaJava />,
+  'Spring Boot': <FaJava />,
+  'Python': <FaPython />,
+  'Node.js': <FaNodeJs />,
+  'Express.js': <FaNodeJs />,
+  'Hibernate': <FaJava />,
+  'Maven': <FaJava />,
+  'Gradle': <FaJava />,
+  'JUnit': <FaJava />,
+  'Mockito': <FaJava />,
+  'Jest': <FaReact />,
+  'React': <FaReact />,
+  'Angular': <FaAngular />,
+  'Vue.js': <FaVuejs />,
+  'Next.js': <FaReact />,
+  'Gatsby': <FaReact />,
+  'Nuxt.js': <FaVuejs />,
+  'Redux': <FaReact />,
+  'Vuex': <FaVuejs />,
+  'Tailwind CSS': <SiCss3 />,
+  'Bootstrap': <SiCss3 />,
+  'JQuery': <SiJquery />,
 };
 
 
