@@ -5,6 +5,7 @@ export const getDatoCmsToken = (): string => {
 
   switch (hostname) {
     case 'ror.sumanthsamala.com':
+    case 'sumanthsamala.com':
     case 'ror.localhost':
     case 'localhost':
       return '41c30f33cba9ff368371a8f58802fd';
