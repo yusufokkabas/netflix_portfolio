@@ -48,8 +48,6 @@ const Skills: React.FC = () => {
     return acc;
   }, {});
 
-  console.log("🚀 ~ skillsByCategory ~ skillsByCategory:", skillsByCategory)
-
 
   return (
     <div className="skills-container">

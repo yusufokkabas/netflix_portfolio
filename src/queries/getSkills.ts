@@ -4,7 +4,7 @@ import { Skill } from '../types';
 
 const GET_SKILLS = `
 {
-  allSkills {
+  allSkills(orderBy: category_ASC) {
     name
     category
     description
