@@ -8,7 +8,6 @@ const WorkPermit: React.FC = () => {
   useEffect(() => {
     async function fetchWorkPermitData() {
       const data = await getWorkPermit();
-      console.log("🚀 ~ fetchWorkPermitData ~ data:", data)
       setWorkPermitData(data);
     }
     fetchWorkPermitData();

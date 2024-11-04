@@ -38,7 +38,7 @@ export interface Certification {
   issuer: string;
   issuedDate: string;
   link: string;
-  icon: { url: string };
+  iconName: string;
 }
 
 export interface ContactMe {

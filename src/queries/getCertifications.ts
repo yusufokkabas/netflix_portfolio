@@ -9,9 +9,7 @@ const GET_CERTIFICATIONS = `
       issuer
       issuedDate
       link
-      icon {
-        url
-      }
+      iconName
     }
   }
 `;
