@@ -1,7 +1,8 @@
 import { GraphQLClient } from 'graphql-request';
+import { getDatoCmsToken } from './getDatoCmsToken';
 
 const DATO_CMS_ENDPOINT = 'https://graphql.datocms.com/';
-const DATO_CMS_API_TOKEN = '41c30f33cba9ff368371a8f58802fd';
+const DATO_CMS_API_TOKEN = getDatoCmsToken();
 
 const datoCMSClient = new GraphQLClient(DATO_CMS_ENDPOINT, {
   headers: {

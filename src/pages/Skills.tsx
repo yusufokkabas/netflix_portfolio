@@ -1,71 +1,67 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import './Skills.css';
+import { getSkills } from '../queries/getSkills';
+
 import { FaReact, FaNodeJs, FaAws, FaDocker, FaGitAlt, FaJava } from 'react-icons/fa';
 import { SiRubyonrails, SiTypescript, SiPostgresql, SiMysql, SiKubernetes, SiGooglecloud, SiSpringboot, SiPhp, SiNetlify, SiHeroku, SiHtml5, SiCss3, SiRabbitmq, SiImessage } from 'react-icons/si';
+import { Skill } from '../types';
 
-const skillsData = [
-  {
-    category: "Backend",
-    skills: [
-      { name: "Ruby on Rails", icon: <SiRubyonrails />, description: "Backend Framework" },
-      { name: "Node.js", icon: <FaNodeJs />, description: "Backend Runtime" },
-      { name: "Spring Boot", icon: <SiSpringboot />, description: "Java Framework" },
-      { name: "Java", icon: <FaJava />, description: "Object-Oriented Programming Language" },
-      { name: "PHP", icon: <SiPhp />, description: "Backend Language" },
-    ],
-  },
-  {
-    category: "Frontend",
-    skills: [
-      { name: "React", icon: <FaReact />, description: "Frontend Framework" },
-      { name: "TypeScript", icon: <SiTypescript />, description: "Type-safe JavaScript" },
-      { name: "JavaScript", icon: <FaNodeJs />, description: "Scripting Language" },
-      { name: "HTML & CSS", icon: <SiHtml5 />, description: "Web Markup and Styling" },
-    ],
-  },
-  {
-    category: "Databases",
-    skills: [
-      { name: "PostgreSQL", icon: <SiPostgresql />, description: "Relational Database" },
-      { name: "MySQL", icon: <SiMysql />, description: "Relational Database" },
-    ],
-  },
-  {
-    category: "Cloud & DevOps",
-    skills: [
-      { name: "AWS", icon: <FaAws />, description: "Cloud Platform" },
-      { name: "GCP", icon: <SiGooglecloud />, description: "Google Cloud Platform" },
-      { name: "Docker", icon: <FaDocker />, description: "Containerization" },
-      { name: "Kubernetes", icon: <SiKubernetes />, description: "Container Orchestration" },
-      { name: "Heroku", icon: <SiHeroku />, description: "Cloud Platform for Apps" },
-      { name: "Netlify", icon: <SiNetlify />, description: "Frontend Deployment Platform" },
-      { name: "CI/CD", icon: <FaGitAlt />, description: "Continuous Integration & Delivery" },
-    ],
-  },
-  {
-    category: "Other Tools & Practices",
-    skills: [
-      { name: "Git", icon: <FaGitAlt />, description: "Version Control" },
-      { name: "RabbitMQ", icon: <SiRabbitmq />, description: "Message Broker" },
-      { name: "Kafka", icon: <SiImessage />, description: "Event Streaming" },
-      { name: "Agile", icon: <FaGitAlt />, description: "Development Methodology" },
-      { name: "Dockerization", icon: <FaDocker />, description: "Container Management" },
-    ],
-  },
-];
+const iconMap: { [key: string]: JSX.Element } = {
+  SiRubyonrails: <SiRubyonrails />,
+  FaNodeJs: <FaNodeJs />,
+  SiSpringboot: <SiSpringboot />,
+  FaJava: <FaJava />,
+  SiPhp: <SiPhp />,
+  FaReact: <FaReact />,
+  SiTypescript: <SiTypescript />,
+  FaAws: <FaAws />,
+  FaDocker: <FaDocker />,
+  SiPostgresql: <SiPostgresql />,
+  SiMysql: <SiMysql />,
+  SiKubernetes: <SiKubernetes />,
+  SiGooglecloud: <SiGooglecloud />,
+  SiHeroku: <SiHeroku />,
+  SiNetlify: <SiNetlify />,
+  SiRabbitmq: <SiRabbitmq />,
+  SiImessage: <SiImessage />,
+};
+
 
 const Skills: React.FC = () => {
+
+  const [skillsData, setSkillsData] = useState<Skill[]>([]);
+
+  useEffect(() => {
+    async function fetchSkills() {
+      const data = await getSkills();
+      setSkillsData(data);
+    }
+
+    fetchSkills()
+  }, []);
+
+  if (skillsData.length === 0) return <div>Loading...</div>;
+
+  const skillsByCategory = skillsData.reduce((acc: any, skill: any) => {
+    if (!acc[skill.category]) acc[skill.category] = [];
+    acc[skill.category].push(skill);
+    return acc;
+  }, {});
+
+  console.log("🚀 ~ skillsByCategory ~ skillsByCategory:", skillsByCategory)
+
+
   return (
     <div className="skills-container">
-      {skillsData.map((category, index) => (
+      {Object.keys(skillsByCategory).map((category, index) => (
         <div key={index} className="skill-category">
-          <h3 className="category-title">{category.category}</h3>
+          <h3 className="category-title">{category}</h3>
           <div className="skills-grid">
-            {category.skills.map((skill, idx) => (
+            {skillsByCategory[category].map((skill: any, idx: number) => (
               <div key={idx} className="skill-card">
-                <div className="icon">{skill.icon}</div>
+                <div className="icon">{iconMap[skill.icon] || <FaReact />}</div>
                 <h3 className="skill-name">
-                  {skill.name.split('').map((letter, i) => (
+                  {skill.name.split('').map((letter: any, i: number) => (
                     <span key={i} className="letter" style={{ animationDelay: `${i * 0.05}s` }}>
                       {letter}
                     </span>

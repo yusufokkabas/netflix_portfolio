@@ -36,7 +36,6 @@ const Projects: React.FC = () => {
   useEffect(() => { 
     async function fetchProjects() {
       const data = await getProjects();
-      console.log("🚀 ~ fetchProjects ~ data:", data)
       setProjects(data);
     }
     
