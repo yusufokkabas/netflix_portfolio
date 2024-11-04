@@ -1,22 +1,38 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import './ContactMe.css';
 import profilePic from '../images/sumanth.jpeg';
 import { FaEnvelope, FaPhoneAlt, FaCoffee, FaLinkedin } from 'react-icons/fa';
+import { ContactMe as IContactMe } from '../types';
+import { getContactMe } from '../queries/getContactMe';
 
 const ContactMe: React.FC = () => {
+
+  const [userData, setUserData] = useState<IContactMe>()
+
+  useEffect(() => {
+    async function fetchUserData() {
+      const data = await getContactMe();
+      setUserData(data);
+    }
+
+    fetchUserData();
+  }, []);
+
+  if (!userData) return <div>Loading...</div>;
+
   return (
     <div className="contact-container">
       <div className="linkedin-badge-custom">
         <img src={profilePic} alt="Sumanth Samala" className="badge-avatar" />
         <div className="badge-content">
-          <h3 className="badge-name">Sumanth Samala</h3>
-          <p className="badge-title">Senior Software Engineer</p>
+          <h3 className="badge-name">{userData?.name}</h3>
+          <p className="badge-title">{userData.title}</p>
           <p className="badge-description">
-            With 5+ years in full-stack development, skilled in Ruby on Rails, Java Spring Boot, React, Node, AWS, Kubernetes, and Docker.
+            {userData.summary}
           </p>
-          <p className="badge-company">Kajima Community | Swansea University</p>
+          <p className="badge-company">{userData.companyUniversity}</p>
           <a
-            href="https://uk.linkedin.com/in/sumanth-samala-82431161"
+            href={userData.linkedinLink}
             target="_blank"
             rel="noopener noreferrer"
             className="badge-link"
@@ -31,14 +47,14 @@ const ContactMe: React.FC = () => {
       <div className="contact-details">
         <div className="contact-item">
           <FaEnvelope className="contact-icon" />
-          <a href="mailto:chintusamala96@gmail.com" className="contact-link">
-            chintusamala96@gmail.com
+          <a href={`mailto:${userData.email}`} className="contact-link">
+            {userData.email}
           </a>
         </div>
         <div className="contact-item">
           <FaPhoneAlt className="contact-icon" />
-          <a href="tel:+447442796769" className="contact-link">
-            +44 7442 796769
+          <a href={`tel:${userData.phoneNumber}`} className="contact-link">
+            {userData.phoneNumber}
           </a>
         </div>
         <div className="contact-fun">
