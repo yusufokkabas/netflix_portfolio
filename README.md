@@ -1,6 +1,12 @@
-# 🌟 Sumanth Samala's Netflix inspired Portfolio 🌟
+## 🌟 Sumanth Samala's Netflix inspired Portfolio 🌟 - https://sumanthsamala.com/
 
-Welcome to my personal portfolio project! 🚀 This website showcases my work, skills, and experiences in web development. It's designed to be lightweight, customizable, and professional while maintaining an approachable style. Feel free to explore, fork, and contribute! 🛠️
+Welcome to my personal portfolio project! 🚀 This website showcases my work, skills, and experiences in web development. It's designed to be lightweight, customizable, and professional while maintaining an approachable style. 
+
+Explore specific subdomains tailored to different tech stacks:
+- 🌟 [java.sumanthsamala.com](https://java.sumanthsamala.com/) for Java Spring Boot-related work.
+- 🌟 [node.sumanthsamala.com](https://node.sumanthsamala.com/) for Node.js and backend development.
+- 🌟 [frontend.sumanthsamala.com](https://frontend.sumanthsamala.com/) for frontend development expertise.
+- 🌟 [ror.sumanthsamala.com](https://ror.sumanthsamala.com/) for Ruby on Rails projects.
 
 ---
 
@@ -10,6 +16,7 @@ Welcome to my personal portfolio project! 🚀 This website showcases my work, s
 - ⚡ **Fast & Responsive**: Built with modern web technologies for seamless performance.
 - 🎨 **Customizable**: Modular and easy to adapt to your own needs.
 - 📈 **Professional Yet Personal**: Highlights projects, skills, and achievements.
+- 🎨 It can support various por
 
 ---
 
