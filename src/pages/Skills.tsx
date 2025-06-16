@@ -1,10 +1,34 @@
-import React, { useEffect, useState } from 'react';
-import './Skills.css';
-import { getSkills } from '../queries/getSkills';
+import React, { useEffect, useState } from "react";
+import "./Skills.css";
+import { getSkills } from "../queries/getSkills";
 
-import { FaReact, FaNodeJs, FaAws, FaDocker, FaGitAlt, FaJava } from 'react-icons/fa';
-import { SiRubyonrails, SiTypescript, SiPostgresql, SiMysql, SiKubernetes, SiGooglecloud, SiSpringboot, SiPhp, SiNetlify, SiHeroku, SiHtml5, SiCss3, SiRabbitmq, SiImessage } from 'react-icons/si';
-import { Skill } from '../types';
+import {
+  FaReact,
+  FaNodeJs,
+  FaAws,
+  FaDocker,
+  FaGitAlt,
+  FaJava,
+  FaAngular,
+} from "react-icons/fa";
+import {
+  SiRubyonrails,
+  SiTypescript,
+  SiPostgresql,
+  SiMysql,
+  SiKubernetes,
+  SiGooglecloud,
+  SiSpringboot,
+  SiPhp,
+  SiNetlify,
+  SiHeroku,
+  SiHtml5,
+  SiCss3,
+  SiRabbitmq,
+  SiImessage,
+  SiAngular,
+} from "react-icons/si";
+import { Skill } from "../types";
 
 const iconMap: { [key: string]: JSX.Element } = {
   SiRubyonrails: <SiRubyonrails />,
@@ -24,11 +48,10 @@ const iconMap: { [key: string]: JSX.Element } = {
   SiNetlify: <SiNetlify />,
   SiRabbitmq: <SiRabbitmq />,
   SiImessage: <SiImessage />,
+  FaAngular: <FaAngular />,
 };
 
-
 const Skills: React.FC = () => {
-
   const [skillsData, setSkillsData] = useState<Skill[]>([]);
 
   useEffect(() => {
@@ -37,8 +60,9 @@ const Skills: React.FC = () => {
       setSkillsData(data);
     }
 
-    fetchSkills()
+    fetchSkills();
   }, []);
+  console.log("🚀 ~ Skills ~ skillsData:", skillsData);
 
   if (skillsData.length === 0) return <div>Loading...</div>;
 
@@ -47,7 +71,6 @@ const Skills: React.FC = () => {
     acc[skill.category].push(skill);
     return acc;
   }, {});
-
 
   return (
     <div className="skills-container">
@@ -59,8 +82,12 @@ const Skills: React.FC = () => {
               <div key={idx} className="skill-card">
                 <div className="icon">{iconMap[skill.icon] || <FaReact />}</div>
                 <h3 className="skill-name">
-                  {skill.name.split('').map((letter: any, i: number) => (
-                    <span key={i} className="letter" style={{ animationDelay: `${i * 0.05}s` }}>
+                  {skill.name.split("").map((letter: any, i: number) => (
+                    <span
+                      key={i}
+                      className="letter"
+                      style={{ animationDelay: `${i * 0.05}s` }}
+                    >
                       {letter}
                     </span>
                   ))}

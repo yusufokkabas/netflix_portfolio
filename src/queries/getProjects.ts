@@ -1,13 +1,13 @@
 // queries/getProjects.ts
-import datoCMSClient from './datoCMSClient';
-import { Project } from '../types';
+import datoCMSClient from "./datoCMSClient";
+import { Project } from "../types";
 
 const GET_PROJECTS = `
   query {
     allProjects(orderBy: title_ASC) {
       title
       description
-      techUsed
+      techused
       image {
         url
       }
@@ -16,6 +16,8 @@ const GET_PROJECTS = `
 `;
 
 export async function getProjects(): Promise<Project[]> {
-  const data = await datoCMSClient.request<{ allProjects: Project[] }>(GET_PROJECTS);
+  const data = await datoCMSClient.request<{ allProjects: Project[] }>(
+    GET_PROJECTS
+  );
   return data.allProjects;
 }

@@ -1,29 +1,22 @@
 // types.ts
 
 export interface ProfileBanner {
-  backgroundImage: { url: string };
+  backgroundImageUrl: string;
   headline: string;
-  resumeLink: {
+  resumelink: {
     url: string;
   };
-  linkedinLink: string;
-  profileSummary: string;
-}
-
-export interface WorkPermit {
-  visaStatus: string;
-  expiryDate: Date;
-  summary: string;
-  additionalInfo: string;
+  linkedinlink: string;
+  profilesummary: string;
 }
 
 export interface TimelineItem {
-  timelineType: 'work' | 'education';
+  timelinetype: "work" | "education";
   name: string;
   title: string;
-  techStack: string;
-  summaryPoints: string[];
-  dateRange: string;
+  techstack: string;
+  summarypoints: string[];
+  daterange: string;
 }
 
 export interface Project {
@@ -42,17 +35,17 @@ export interface Certification {
 }
 
 export interface ContactMe {
-  profilePicture: { url: string };
+  profilepicture: { url: string };
   name: string;
   title: string;
   summary: string;
-  companyUniversity: string;
-  linkedinLink: string;
+  companyuniversity: string;
+  linkedinlink: string;
   email: string;
-  phoneNumber: string;
+  phonenumber: string;
 }
 
-export interface Skill { 
+export interface Skill {
   name: string;
   category: string;
   description: string;
