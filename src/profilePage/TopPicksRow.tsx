@@ -33,18 +33,18 @@ const topPicksConfig = {
       icon: <FaBriefcase />,
       route: "/work-experience",
     },
-    {
-      title: "Certifications",
-      imgSrc: "https://picsum.photos/seed/certifications/250/200",
-      icon: <FaCertificate />,
-      route: "/certifications",
-    },
-    {
-      title: "Recommendations",
-      imgSrc: "https://picsum.photos/seed/recommendations/250/200",
-      icon: <FaHandsHelping />,
-      route: "/recommendations",
-    },
+    // {
+    //   title: "Certifications",
+    //   imgSrc: "https://picsum.photos/seed/certifications/250/200",
+    //   icon: <FaCertificate />,
+    //   route: "/certifications",
+    // },
+    // {
+    //   title: "Recommendations",
+    //   imgSrc: "https://picsum.photos/seed/recommendations/250/200",
+    //   icon: <FaHandsHelping />,
+    //   route: "/recommendations",
+    // },
     {
       title: "Projects",
       imgSrc: "https://picsum.photos/seed/projects/250/200",
@@ -71,24 +71,24 @@ const topPicksConfig = {
       route: "/projects",
       icon: <FaProjectDiagram />,
     },
-    {
-      title: "Certifications",
-      imgSrc: "https://picsum.photos/seed/badge/250/200",
-      route: "/certifications",
-      icon: <FaCertificate />,
-    },
+    // {
+    //   title: "Certifications",
+    //   imgSrc: "https://picsum.photos/seed/badge/250/200",
+    //   route: "/certifications",
+    //   icon: <FaCertificate />,
+    // },
     {
       title: "Experience",
       imgSrc: "https://picsum.photos/seed/work/250/200",
       route: "/work-experience",
       icon: <FaBriefcase />,
     },
-    {
-      title: "Recommendations",
-      imgSrc: "https://picsum.photos/seed/networking/250/200",
-      route: "/recommendations",
-      icon: <FaHandsHelping />,
-    },
+    // {
+    //   title: "Recommendations",
+    //   imgSrc: "https://picsum.photos/seed/networking/250/200",
+    //   route: "/recommendations",
+    //   icon: <FaHandsHelping />,
+    // },
     {
       title: "Contact Me",
       imgSrc: "https://picsum.photos/seed/connect/250/200",
@@ -97,12 +97,12 @@ const topPicksConfig = {
     },
   ],
   stalker: [
-    {
-      title: "Recommendations",
-      imgSrc: "https://picsum.photos/seed/networking/250/200",
-      route: "/recommendations",
-      icon: <FaHandsHelping />,
-    },
+    // {
+    //   title: "Recommendations",
+    //   imgSrc: "https://picsum.photos/seed/networking/250/200",
+    //   route: "/recommendations",
+    //   icon: <FaHandsHelping />,
+    // },
     {
       title: "Contact Me",
       imgSrc: "https://picsum.photos/seed/call/250/200",
@@ -121,12 +121,12 @@ const topPicksConfig = {
       route: "/work-experience",
       icon: <FaBriefcase />,
     },
-    {
-      title: "Certifications",
-      imgSrc: "https://picsum.photos/seed/achievements/250/200",
-      route: "/certifications",
-      icon: <FaCertificate />,
-    },
+    // {
+    //   title: "Certifications",
+    //   imgSrc: "https://picsum.photos/seed/achievements/250/200",
+    //   route: "/certifications",
+    //   icon: <FaCertificate />,
+    // },
   ],
   adventurer: [
     {
@@ -153,12 +153,12 @@ const topPicksConfig = {
       route: "/contact-me",
       icon: <FaEnvelope />,
     },
-    {
-      title: "Certifications",
-      imgSrc: "https://picsum.photos/seed/medal/250/200",
-      route: "/certifications",
-      icon: <FaCertificate />,
-    },
+    // {
+    //   title: "Certifications",
+    //   imgSrc: "https://picsum.photos/seed/medal/250/200",
+    //   route: "/certifications",
+    //   icon: <FaCertificate />,
+    // },
   ],
 };
 
@@ -168,7 +168,10 @@ const TopPicksRow: React.FC<TopPicksRowProps> = ({ profile }) => {
 
   return (
     <div className="top-picks-row">
-      <h2 className="row-title">Today's Top Picks for {profile}</h2>
+      <h2 className="row-title">
+        Today's Top Picks for{" "}
+        {profile.charAt(0).toUpperCase() + profile.slice(1)}
+      </h2>
       <div className="card-row">
         {topPicks.map((pick, index) => (
           <div

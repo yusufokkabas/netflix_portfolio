@@ -8,7 +8,7 @@ import {
   FaEnvelope,
 } from "react-icons/fa"; // Import icons
 import "./Navbar.css";
-import netflixLogo from "../images/logo-2.png";
+import netflixLogo from "../images/netflix-logo.png";
 import blueImage from "../images/blue.png";
 import { useProfile } from "../contexts/ProfileContext";
 

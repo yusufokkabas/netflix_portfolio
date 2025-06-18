@@ -10,6 +10,10 @@ import {
   FaGitAlt,
   FaJava,
   FaAngular,
+  FaUsers,
+  FaGlobe,
+  FaLightbulb,
+  FaSitemap,
 } from "react-icons/fa";
 import {
   SiRubyonrails,
@@ -27,6 +31,10 @@ import {
   SiRabbitmq,
   SiImessage,
   SiAngular,
+  SiOracle,
+  SiMongodb,
+  SiNextdotjs,
+  SiJavascript,
 } from "react-icons/si";
 import { Skill } from "../types";
 
@@ -49,7 +57,26 @@ const iconMap: { [key: string]: JSX.Element } = {
   SiRabbitmq: <SiRabbitmq />,
   SiImessage: <SiImessage />,
   FaAngular: <FaAngular />,
+  SiOracle: <SiOracle />,
+  SiMongodb: <SiMongodb />,
+  SiNextdotjs: <SiNextdotjs />,
+  FaUsers: <FaUsers />,
+  FaGlobe: <FaGlobe />,
+  FaLightbulb: <FaLightbulb />,
+  FaSitemap: <FaSitemap />,
+  SiJavascript: <SiJavascript />,
+  SiAngular: <SiAngular />,
 };
+
+// Define the priority order for categories
+const categoryPriority = [
+  "Frontend Frameworks",
+  "Backend Frameworks",
+  "Cloud & DevOps",
+  "Databases",
+  "Programming Languages",
+  "Professional Skills",
+];
 
 const Skills: React.FC = () => {
   const [skillsData, setSkillsData] = useState<Skill[]>([]);
@@ -62,7 +89,10 @@ const Skills: React.FC = () => {
 
     fetchSkills();
   }, []);
-  console.log("🚀 ~ Skills ~ skillsData:", skillsData);
+  console.log(
+    "🚀 ~ Skills ~ skillsData:",
+    skillsData.map((skill) => skill.name)
+  );
 
   if (skillsData.length === 0) return <div>Loading...</div>;
 
@@ -72,26 +102,34 @@ const Skills: React.FC = () => {
     return acc;
   }, {});
 
+  // Sort categories according to priority order
+  const sortedCategories = Object.keys(skillsByCategory).sort((a, b) => {
+    const indexA = categoryPriority.indexOf(a);
+    const indexB = categoryPriority.indexOf(b);
+
+    // If both categories are in the priority list, sort by their index
+    if (indexA !== -1 && indexB !== -1) {
+      return indexA - indexB;
+    }
+
+    // If only one category is in the priority list, prioritize it
+    if (indexA !== -1) return -1;
+    if (indexB !== -1) return 1;
+
+    // If neither category is in the priority list, sort alphabetically
+    return a.localeCompare(b);
+  });
+
   return (
     <div className="skills-container">
-      {Object.keys(skillsByCategory).map((category, index) => (
+      {sortedCategories.map((category, index) => (
         <div key={index} className="skill-category">
           <h3 className="category-title">{category}</h3>
           <div className="skills-grid">
             {skillsByCategory[category].map((skill: any, idx: number) => (
               <div key={idx} className="skill-card">
                 <div className="icon">{iconMap[skill.icon] || <FaReact />}</div>
-                <h3 className="skill-name">
-                  {skill.name.split("").map((letter: any, i: number) => (
-                    <span
-                      key={i}
-                      className="letter"
-                      style={{ animationDelay: `${i * 0.05}s` }}
-                    >
-                      {letter}
-                    </span>
-                  ))}
-                </h3>
+                <h3 className="skill-name">{skill.name}</h3>
                 <p className="skill-description">{skill.description}</p>
               </div>
             ))}

@@ -47,11 +47,11 @@ const continueWatchingConfig = {
       imgSrc: "https://picsum.photos/id/1027/300/200",
       link: "/blogs",
     },
-    {
-      title: "Certifications",
-      imgSrc: "https://picsum.photos/id/1028/300/200",
-      link: "/certifications",
-    },
+    // {
+    //   title: "Certifications",
+    //   imgSrc: "https://picsum.photos/id/1028/300/200",
+    //   link: "/certifications",
+    // },
     {
       title: "Contact Me",
       imgSrc: "https://picsum.photos/id/1029/300/200",
@@ -86,11 +86,11 @@ const continueWatchingConfig = {
       imgSrc: "https://picsum.photos/id/1026/300/200",
       link: "/reading",
     },
-    {
-      title: "Certifications",
-      imgSrc: "https://picsum.photos/id/1028/300/200",
-      link: "/certifications",
-    },
+    // {
+    //   title: "Certifications",
+    //   imgSrc: "https://picsum.photos/id/1028/300/200",
+    //   link: "/certifications",
+    // },
     {
       title: "Contact Me",
       imgSrc: "https://picsum.photos/id/1029/300/200",
@@ -104,7 +104,10 @@ const ContinueWatching: React.FC<ContinueWatchingProps> = ({ profile }) => {
 
   return (
     <div className="continue-watching-row">
-      <h2 className="row-title">Continue Watching for {profile}</h2>
+      <h2 className="row-title">
+        Continue Watching for{" "}
+        {profile.charAt(0).toUpperCase() + profile.slice(1)}
+      </h2>
       <div className="card-row">
         {continueWatching.map((pick, index) => (
           <Link to={pick.link} key={index} className="pick-card">

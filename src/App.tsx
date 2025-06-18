@@ -37,14 +37,14 @@ const App: React.FC = () => {
             </Layout>
           }
         />
-        <Route
+        {/* <Route
           path="/recommendations"
           element={
             <Layout>
               <Recommendations />
             </Layout>
           }
-        />
+        /> */}
         <Route
           path="/skills"
           element={
@@ -93,14 +93,14 @@ const App: React.FC = () => {
             </Layout>
           }
         />
-        <Route
+        {/* <Route
           path="/certifications"
           element={
             <Layout>
               <Certifications />
             </Layout>
           }
-        />
+        /> */}
       </Routes>
     </ProfileProvider>
   );

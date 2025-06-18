@@ -23,8 +23,11 @@ export interface TimelineItem {
 export interface Project {
   title: string;
   description: string;
-  techUsed: string;
+  techused: string;
+  shortdescription: string;
+  createddate: string;
   image: { url: string };
+  link: string;
 }
 
 export interface Certification {

@@ -30,10 +30,11 @@
 }
 
 .navbar-logo img {
-  height: 30px;
-  margin-right: 30px;
+  height: 40px;
+  margin-right: 40px;
   margin-left: 10px;
   margin-top: 5px;
+  scale: 1.6;
 }
 
 /* Navbar Links */
@@ -94,8 +95,9 @@
 /* Mobile-specific styling */
 @media (max-width: 768px) {
   .navbar-logo img {
-    height: 20px;
+    height: 40px;
     margin-right: auto;
+    scale: 1.6;
   }
   .profile-icon {
     width: 24px;

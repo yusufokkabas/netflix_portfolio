@@ -15,6 +15,7 @@ import {
   FaMicrosoft,
   FaPython,
   FaVuejs,
+  FaExternalLinkAlt,
 } from "react-icons/fa";
 import {
   SiRubyonrails,
@@ -108,17 +109,29 @@ const Projects: React.FC = () => {
             key={index}
             className="project-card"
             style={{ "--delay": `${index * 0.1}s` } as React.CSSProperties}
+            onClick={() => project.link && window.open(project.link, "_blank")}
           >
-            <img
-              src={project.image.url}
-              alt={project.title}
-              className="project-image"
-            />
+            <div className="project-image-container">
+              <img
+                src={project.image.url}
+                alt={project.title}
+                className="project-image"
+              />
+              <div className="project-overlay">
+                <div className="go-to-link">
+                  <FaExternalLinkAlt className="link-icon" />
+                  <span>Go To Project</span>
+                </div>
+              </div>
+            </div>
             <div className="project-details">
               <h3>{project.title}</h3>
+              <p className="project-short-description">
+                {project.shortdescription}
+              </p>
               <p>{project.description}</p>
               <div className="tech-used">
-                {project.techUsed.split(", ").map((tech, i) => (
+                {project.techused.split(", ").map((tech, i) => (
                   <span key={i} className="tech-badge">
                     {techIcons[tech] || "🔧"} {tech}
                   </span>
