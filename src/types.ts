@@ -15,8 +15,9 @@ export interface TimelineItem {
   name: string;
   title: string;
   techstack: string;
-  summarypoints: string[];
+  summarypoints: string;
   daterange: string;
+  date: string;
 }
 
 export interface Project {

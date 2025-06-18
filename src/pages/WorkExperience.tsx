@@ -73,7 +73,11 @@ const WorkExperience: React.FC = () => {
                 <p className="vertical-timeline-element-tech">
                   🔧 {item.techstack}
                 </p>
-                <p>{item.summarypoints}</p>
+                <p>
+                  {item.summarypoints.split("*").map((point, i) => (
+                    <p key={i}>{point}</p>
+                  ))}
+                </p>
               </div>
             ) : (
               <div style={{ color: "black" }}>

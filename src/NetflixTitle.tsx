@@ -6,19 +6,21 @@ import logoImage from "../src/images/logo-2.png"; // Update with the path to you
 
 const NetflixTitle = () => {
   const [isClicked, setIsClicked] = useState(false);
+  const [isFadingOut, setIsFadingOut] = useState(false);
   const navigate = useNavigate();
 
   const handlePlaySound = () => {
     const audio = new Audio(netflixSound);
     audio.play().catch((error) => console.error("Audio play error:", error));
-    setIsClicked(true); // Starts animation after clicking
+    setIsFadingOut(true);
+    setIsClicked(true);
   };
 
   useEffect(() => {
     if (isClicked) {
       const timer = setTimeout(() => {
         navigate("/browse");
-      }, 3000);
+      }, 4000);
       return () => clearTimeout(timer);
     }
   }, [isClicked, navigate]);
@@ -30,6 +32,9 @@ const NetflixTitle = () => {
         alt="Custom Logo"
         className={`netflix-logo ${isClicked ? "animate" : ""}`}
       />
+      <div className={`click-instruction ${isFadingOut ? "fade-out" : ""}`}>
+        Click Anywhere To Continue
+      </div>
     </div>
   );
 };
